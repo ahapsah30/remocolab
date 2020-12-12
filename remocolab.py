@@ -5,7 +5,6 @@ import IPython.utils.io
 import ipywidgets
 import pyngrok.ngrok, pyngrok.conf
 
-# https://salsa.debian.org/apt-team/python-apt
 # https://apt-team.pages.debian.net/python-apt/library/index.html
 class _NoteProgress(apt.progress.base.InstallProgress, apt.progress.base.AcquireProgress, apt.progress.base.OpProgress):
   def __init__(self):
@@ -254,7 +253,7 @@ def _setupSSHDMain(public_key, tunnel, ngrok_region, check_gpu_available, mount_
         print("Please specifiy the existing directory path in your Google drive like 'mount_gdrive_from = \"My Drive/somedir\"'")
         return (False, "")
 
-  ngrok_token = None
+  ngrok_token = "1lWRCFVf2bqUvbOtbjQ4CtZw6sc_4KqnVvNG8SpwJ3vyX7Nve"
 
   if tunnel == "ngrok":
     print("It seems Google is blocking ngrok.")
@@ -265,7 +264,7 @@ def _setupSSHDMain(public_key, tunnel, ngrok_region, check_gpu_available, mount_
     print("Copy&paste your tunnel authtoken from https://dashboard.ngrok.com/auth")
     print("(You need to sign up for ngrok and login,)")
     #Set your ngrok Authtoken.
-    ngrok_token = 1lWRCFVf2bqUvbOtbjQ4CtZw6sc_4KqnVvNG8SpwJ3vyX7Nve
+    ngrok_token = "1lWRCFVf2bqUvbOtbjQ4CtZw6sc_4KqnVvNG8SpwJ3vyX7Nve"
 
     if not ngrok_region:
       print("Select your ngrok region:")
@@ -276,7 +275,7 @@ def _setupSSHDMain(public_key, tunnel, ngrok_region, check_gpu_available, mount_
       print("sa - South America (Sao Paulo)")
       print("jp - Japan (Tokyo)")
       print("in - India (Mumbai)")
-      ngrok_region = region = us
+      ngrok_region = region = "us"
 
   return (True, _setupSSHDImpl(public_key, tunnel, ngrok_token, ngrok_region, mount_gdrive_to, mount_gdrive_from, is_VNC))
 
